@@ -94,5 +94,5 @@ El proyecto consiste en el desarrollo de una aplicación en **Power Apps** para 
 
 ---
 
-## ✅ Conclusión
-Este plan asegura que en 6 meses se entregue un **MVP sólido y funcional**, con trazabilidad contractual, gestión presupuestal, alertas automáticas y seguridad integrada, listo para pruebas piloto en el banco.
+## Conclusión
+Voy a llorar
