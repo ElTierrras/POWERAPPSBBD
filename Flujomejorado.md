@@ -1,4 +1,4 @@
-# 📊 Diagrama de Flujo – Power Apps Sistema de Control Contractual y Presupuestal
+# Diagrama de Flujo – Power Apps Sistema de Control Contractual y Presupuestal
 
 ```mermaid
 flowchart TD
@@ -12,50 +12,56 @@ flowchart TD
     C --> D[Gestión de Contratos]
     C --> E[Gestión de Proveedores]
     C --> F[Gestión Presupuestal]
-    C --> G[Alertas Automáticas]
+    C --> G[Alertas y Notificaciones]
     C --> H[Generación de Memorandos]
-    C --> I[Auditoría Opcional]
+    C --> I[Seguridad y Auditoría]
     C --> J[Integración con otras Apps]
     C --> K[Cierre de Sesión]
 
     %% Contratos
-    D --> D1[Registro/Consulta de Contratos]
-    D1 --> D2{¿Contrato vence en menos de 3 meses?}
-    D2 -->|Sí| G
-    D2 -->|No| C
+    D --> D1[Registro completo de contratos]
+    D1 --> D2[Búsqueda avanzada por NIT o razón social]
+    D2 --> D3[Visualización integral: estado, valor, vigencia]
+    D3 --> D4{¿Contrato vence en menos de 3 meses?}
+    D4 -->|Sí| G
+    D4 -->|No| C
 
     %% Proveedores
-    E --> E1[Registro de Proveedores]
-    E1 --> E2[Relación Proveedor-Contrato]
-    E2 --> E3[Consulta Historial]
+    E --> E1[Registro de datos generales y documentos legales]
+    E1 --> E2[Relación proveedor–contrato]
+    E2 --> E3[Evaluación de participación en proyectos]
 
     %% Presupuesto
     F --> F1[Conexión con Power BI]
     F1 --> F2[Identificación por NIT]
-    F2 --> F3{¿Ejecución mayor o igual al 70%?}
-    F3 -->|Sí| G
-    F3 -->|No| C
+    F2 --> F3[Registro de asignaciones, compromisos y pagos]
+    F3 --> F4[Consulta de saldos disponibles]
+    F4 --> F5{¿Ejecución ≥ 70%?}
+    F5 -->|Sí| G
+    F5 -->|No| C
 
     %% Alertas
-    G --> G1[Generar Alerta]
-    G1 --> G2[Enviar Correo a Responsables]
-    G2 --> G3[Registrar Alerta en Sistema]
+    G --> G1[Generar alerta automática]
+    G1 --> G2[Enviar correo a responsables]
+    G2 --> G3[Registrar alerta en sistema]
 
     %% Memorandos
-    H --> H1[Reunir Campos Comunes]
-    H1 --> H2[Pantalla Editable para Usuario]
-    H2 --> H3[Generar Documento Final]
+    H --> H1[Reunir campos comunes del contrato]
+    H1 --> H2[Pantalla editable para completar información]
+    H2 --> H3[Generar documento final]
 
-    %% Auditoría Opcional
-    I --> I1[Registro de Modificaciones]
-    I1 --> C
+    %% Seguridad y Auditoría
+    I --> I1[Control de acceso por roles y permisos]
+    I1 --> I2[Confidencialidad garantizada]
+    I2 --> I3[Registro de auditoría de modificaciones (opcional)]
 
     %% Integración
-    J --> J1[Conexión con Apps de la VP]
-    J1 --> C
+    J --> J1[Conexión con Power BI]
+    J --> J2[Integración futura con SAP Sourcing]
+    J --> J3[Conexión con otras Apps VP]
 
     %% Cierre
-    K --> L[Registro de Actividad]
+    K --> L[Registro de actividad]
     L --> M[Fin del Flujo]
 
     %% Roles
