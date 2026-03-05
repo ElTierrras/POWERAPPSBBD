@@ -20,7 +20,7 @@ flowchart TD
 
     %% Contratos
     D --> D1[Registro/Consulta de Contratos]
-    D1 --> D2{¿Contrato vence en < 3 meses?}
+    D1 --> D2{¿Contrato vence en menos de 3 meses?}
     D2 -->|Sí| G
     D2 -->|No| C
 
@@ -32,7 +32,7 @@ flowchart TD
     %% Presupuesto
     F --> F1[Conexión con Power BI]
     F1 --> F2[Identificación por NIT]
-    F2 --> F3{¿Ejecución ≥ 70%?}
+    F2 --> F3{¿Ejecución mayor o igual al 70%?}
     F3 -->|Sí| G
     F3 -->|No| C
 
@@ -51,7 +51,7 @@ flowchart TD
     I1 --> C
 
     %% Integración
-    J --> J1[Conexión con Apps VP]
+    J --> J1[Conexión con Apps de la VP]
     J1 --> C
 
     %% Cierre
@@ -62,7 +62,7 @@ flowchart TD
     subgraph Roles
         RA[Administrador: Cesar Romero, Jhojan Cubillos]
         RL[Lectura: Natalia Gonzales Foglia, Luisa Pedraza Duque]
-        RE[Lectura y Edición: Giovanna Rojas (Jefa)]
+        RE[Lectura y Edición: Giovanna Rojas - Jefa]
     end
 
     %% Relación de roles con seguridad
