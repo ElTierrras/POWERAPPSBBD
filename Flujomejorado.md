@@ -68,7 +68,7 @@ flowchart TD
     subgraph Roles
         RA[Administrador: Cesar Romero, Jhojan Cubillos]
         RL[Lectura: Natalia Gonzales Foglia, Luisa Pedraza Duque]
-        RE[Lectura y Edición: Giovanna Rojas - Jefa]
+        RE[Lectura y Edición: Giovanna Rojas]
     end
 
     %% Relación de roles con seguridad
