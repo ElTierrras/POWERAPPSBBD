@@ -53,7 +53,7 @@ flowchart TD
     %% Seguridad y Auditoría
     I --> I1[Control de acceso por roles y permisos]
     I1 --> I2[Confidencialidad garantizada]
-    I2 --> I3[Registro de auditoría de modificaciones (opcional)]
+    I2 --> I3[Registro de auditoría de modificaciones opcional]
 
     %% Integración
     J --> J1[Conexión con Power BI]
