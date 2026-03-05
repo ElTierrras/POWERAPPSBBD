@@ -3,13 +3,15 @@
 ```mermaid
 flowchart TD
 
+    %% Inicio y Seguridad
     A[Inicio de Sesión] --> B{Validación Grupo Seguridad}
     B -->|No autorizado| Z[Acceso Denegado]
     B -->|Autorizado| C[Menú Principal]
 
+    %% Menú Principal
     C --> D[Contratos]
     C --> E[Proveedores]
-    C --> F[Presupuesto (Power BI)]
+    C --> F[Presupuesto]
     C --> G[Alertas]
     C --> H[Memorandos]
     C --> I[Auditoría Opcional]
