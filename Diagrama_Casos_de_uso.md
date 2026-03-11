@@ -1,3 +1,4 @@
+```mermaid
 flowchart LR
     subgraph Sistema[Power Apps]
         UC1[Registrar Contratos]
