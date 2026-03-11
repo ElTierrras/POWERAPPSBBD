@@ -1,5 +1,9 @@
 # ESPECIFICACIÓN DE CASOS DE USO
 
+---
+
+# UC01-RegistrarContratos
+
 ## Encabezado
 - **ID:** UC-01  
 - **Nombre:** Registrar Contratos  
@@ -92,6 +96,10 @@ Formulario con campos NIT, razón social, fechas, valor, anexos. Botones Guardar
 | Fecha | Descripción | Autor |
 |-------|-------------|-------|
 |       |             |       |
+
+---
+
+# UC02-ConsultarContratos
 
 ---
 
@@ -188,6 +196,10 @@ Pantalla con barra de búsqueda, filtros y tabla de resultados.
 
 ---
 
+# UC03-RegistrarProveedores
+
+---
+
 ## Encabezado
 - **ID:** UC-03  
 - **Nombre:** Registrar Proveedores  
@@ -280,6 +292,9 @@ Formulario con campos NIT, nombre, documentos. Botones Guardar/Cancelar.
 | Fecha | Descripción | Autor |
 |-------|-------------|-------|
 
+---
+
+# UC04-ConsultarProveedores
 
 ---
 
@@ -375,6 +390,10 @@ Pantalla con barra de búsqueda, filtros y tabla de resultados.
 
 ---
 
+# UC05-VisualizarPresupuesto
+
+---
+
 ## Encabezado
 - **ID:** UC-05  
 - **Nombre:** Visualizar Presupuesto  
@@ -464,6 +483,9 @@ Pantalla con campo NIT y tabla de resultados.
 | Fecha | Descripción | Autor |
 |-------|-------------|-------|
 
+---
+
+# UC06-ConfigurarAlertas
 
 ---
 
@@ -558,6 +580,10 @@ Formulario con parámetros de alerta.
 
 ---
 
+# UC07-GenerarMemorandos
+
+---
+
 ## Encabezado
 - **ID:** UC-07  
 - **Nombre:** Generar Memorandos  
@@ -646,6 +672,107 @@ Pantalla editable con campos prellenados y botón “Generar Memorando”.
 ## Control de Cambios
 | Fecha | Descripción | Autor |
 |-------|-------------|-------|
+
+---
+
+# UC08-EditarContratosProveedores
+
+---
+
+## Encabezado
+- **ID:** UC-08  
+- **Nombre:** Editar Contratos/Proveedores  
+- **Tipo:** Obligatorio  
+- **Prioridad:** Alta  
+- **Actores involucrados:** Permiso Especial  
+
+---
+
+## Descripción
+Permite al actor con permiso especial modificar información de contratos y proveedores ya registrados en el sistema.
+
+---
+
+## Entradas y Salidas
+| Entradas | Salidas |
+|----------|---------|
+| Datos modificados del contrato/proveedor | Registro actualizado, mensaje de confirmación |
+
+---
+
+## Precondiciones y Postcondiciones
+| Precondiciones | Postcondiciones |
+|----------------|-----------------|
+| Usuario autenticado con permiso especial | Registro actualizado y disponible |
+
+---
+
+## Dependencias y Extensiones
+| Dependencias | Extensiones |
+|--------------|-------------|
+| UC‑01, UC‑03 | Historial de cambios |
+
+---
+
+## Flujo Normal
+| No. | Acción | Respuesta |
+|-----|--------|-----------|
+| 1 | Usuario accede al módulo | Sistema muestra lista |
+| 2 | Selecciona registro | Sistema muestra detalles |
+| 3 | Edita datos | Sistema valida |
+| 4 | Confirma | Sistema guarda cambios |
+
+---
+
+## Caminos Alternativos
+| Flujo | Alternativa | Acción | Respuesta |
+|-------|-------------|--------|-----------|
+| Paso 3 | Datos inválidos | Usuario guarda | Error |
+
+---
+
+## Excepciones
+- Error BD  
+- Intento de editar sin permisos  
+
+---
+
+## Puntos de Extensión
+No aplica.  
+
+---
+
+## Criterios de Aceptación
+- Edición exitosa con permisos especiales.  
+- Registro actualizado inmediatamente.  
+
+---
+
+## RNF
+- Usabilidad: interfaz clara.  
+- Seguridad: solo permisos especiales.  
+
+---
+
+## Borrador Interfaz
+Pantalla con formulario editable y botón Guardar.  
+
+---
+
+## Seguimiento
+| Fecha | Descripción | Gestor |
+|-------|-------------|--------|
+| 11/03/2026 | Especificación completa | Líder Planeación |
+
+---
+
+## Control de Cambios
+| Fecha | Descripción | Autor |
+|-------|-------------|-------|
+
+---
+
+# UC09-Auditoria
 
 ---
 
