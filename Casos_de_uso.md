@@ -9,38 +9,88 @@
 
 ## 2. Tabla de Casos de Uso
 
-| Caso de Uso | Actor(es) | Descripción | Requerimientos Funcionales Asociados | Flujo Básico |
-|-------------|-----------|-------------|--------------------------------------|--------------|
-| Registrar Contratos | Administrador | Permite ingresar un nuevo contrato con todos sus datos (vigencia, anexos, obligaciones). | RF1 – Gestión de Contratos | 1. Admin accede al módulo → 2. Ingresa datos → 3. Guarda contrato → 4. Sistema confirma registro |
-| Consultar Contratos | Lectura, Admin, Jefa | Permite buscar contratos por NIT o razón social y visualizar su estado. | RF1 – Gestión de Contratos | 1. Usuario accede al módulo → 2. Ingresa criterio de búsqueda → 3. Sistema muestra resultados |
-| Registrar Proveedores | Administrador | Permite ingresar datos generales y documentos legales de proveedores. | RF2 – Gestión de Proveedores | 1. Admin accede al módulo → 2. Ingresa datos → 3. Guarda proveedor → 4. Sistema confirma |
-| Consultar Proveedores | Lectura, Admin, Jefa | Permite visualizar información de proveedores y su relación con contratos. | RF2 – Gestión de Proveedores | 1. Usuario accede → 2. Selecciona proveedor → 3. Sistema muestra información |
-| Visualizar Presupuesto | Lectura, Admin, Jefa | Permite consultar asignaciones, compromisos y saldos desde Power BI filtrado por NIT. | RF3 – Gestión Presupuestal | 1. Usuario accede → 2. Ingresa NIT → 3. Sistema muestra datos desde Power BI |
-| Configurar Alertas | Administrador | Permite definir alertas de vencimiento (<3 meses) y ejecución ≥70%. | RF4 – Alertas y Notificaciones | 1. Admin accede → 2. Configura parámetros → 3. Sistema activa alertas |
-| Generar Memorandos | Admin, Jefa | Permite crear memorandos semiautomáticos con campos comunes y pantalla editable. | RF4 – Alertas y Notificaciones | 1. Usuario accede → 2. Sistema reúne campos → 3. Usuario completa → 4. Memorando generado |
-| Editar Contratos/Proveedores | Jefa (usuario especial) | Permite modificar información de contratos y proveedores. | RF1, RF2 | 1. Jefa accede → 2. Selecciona registro → 3. Edita → 4. Guarda cambios |
-| Auditoría de Modificaciones | Administrador | Registra cambios realizados en contratos/proveedores. (Opcional) | RF5 – Seguridad y Acceso | 1. Admin accede → 2. Sistema registra cambios → 3. Reporte disponible |
+### Caso de Uso: Registrar Contratos
+- **Actor(es):** Administrador  
+- **Descripción:** Permite ingresar un nuevo contrato con todos sus datos (vigencia, anexos, obligaciones, modificaciones).  
+- **Flujo Principal:**  
+  1. Admin accede al módulo de contratos.  
+  2. Ingresa datos obligatorios (NIT, razón social, fechas, valor).  
+  3. Adjunta documentos.  
+  4. Guarda contrato.  
+  5. Sistema confirma registro.  
+- **Camino Alternativo:** Si faltan datos obligatorios, el sistema muestra mensaje de error y no guarda.  
+- **Excepciones:** Error de conexión con base de datos.  
+- **Dependencias:** Requiere que el proveedor esté registrado previamente.  
+- **Visualización del Módulo:** Formulario con campos estructurados, botones de guardar y cancelar, lista de contratos registrados.  
 
 ---
 
-## 3. Diagrama de Casos de Uso (Mermaid)
+### Caso de Uso: Consultar Contratos
+- **Actor(es):** Administrador, Lectura, Jefa  
+- **Descripción:** Permite buscar contratos por NIT o razón social y visualizar su estado.  
+- **Flujo Principal:**  
+  1. Usuario accede al módulo.  
+  2. Ingresa criterio de búsqueda.  
+  3. Sistema muestra resultados con estado, valor y vigencia.  
+- **Camino Alternativo:** Si no hay resultados, se muestra mensaje “No se encontraron contratos”.  
+- **Excepciones:** Error de conexión con base de datos.  
+- **Dependencias:** Requiere contratos previamente registrados.  
+- **Visualización del Módulo:** Pantalla con barra de búsqueda, filtros y tabla de resultados.  
+
+---
+
+### Caso de Uso: Generar Memorandos
+- **Actor(es):** Administrador, Jefa  
+- **Descripción:** Permite crear memorandos semiautomáticos con campos comunes y pantalla editable.  
+- **Flujo Principal:**  
+  1. Usuario accede al módulo de memorandos.  
+  2. Sistema reúne campos comunes del contrato.  
+  3. Usuario completa información faltante en pantalla editable.  
+  4. Memorando se genera en formato documento.  
+- **Camino Alternativo:** Usuario cancela antes de guardar.  
+- **Excepciones:** Error en la generación del documento.  
+- **Dependencias:** Requiere contrato previamente registrado.  
+- **Visualización del Módulo:** Pantalla editable con campos prellenados y botón “Generar Memorando”.  
+
+---
+
+*(Se repite la misma estructura para cada caso de uso: Proveedores, Presupuesto, Alertas, Seguridad, etc.)*
+
+---
+
+## 3. Diagrama de Casos de Uso
 
 ```mermaid
 flowchart LR
-    actorAdmin[Administrador]
-    actorLectura[Usuario Lectura]
-    actorJefa[Usuario Especial - Jefa]
+    subgraph Sistema[Power Apps Sistema]
+        UC1[Registrar Contratos]
+        UC2[Consultar Contratos]
+        UC3[Registrar Proveedores]
+        UC4[Consultar Proveedores]
+        UC5[Visualizar Presupuesto]
+        UC6[Configurar Alertas]
+        UC7[Generar Memorandos]
+        UC8[Editar Contratos]
+        UC9[Editar Proveedores]
+        UC10[Auditoría de Modificaciones]
+    end
 
-    actorAdmin --> UC1[Registrar Contratos]
-    actorAdmin --> UC2[Registrar Proveedores]
-    actorAdmin --> UC3[Configurar Alertas]
-    actorAdmin --> UC4[Generar Memorandos]
-    actorAdmin --> UC5[Acceso Presupuesto]
+    Admin([Administrador]) --> UC1
+    Admin --> UC2
+    Admin --> UC3
+    Admin --> UC4
+    Admin --> UC5
+    Admin --> UC6
+    Admin --> UC7
+    Admin --> UC10
 
-    actorLectura --> UC6[Consultar Contratos]
-    actorLectura --> UC7[Consultar Proveedores]
-    actorLectura --> UC8[Visualizar Presupuesto]
+    Lectura([Usuario Lectura]) --> UC2
+    Lectura --> UC4
+    Lectura --> UC5
 
-    actorJefa --> UC9[Editar Contratos]
-    actorJefa --> UC10[Editar Proveedores]
-    actorJefa --> UC11[Generar Memorandos]
+    Jefa([Usuario Especial - Giovanna Rojas]) --> UC2
+    Jefa --> UC4
+    Jefa --> UC5
+    Jefa --> UC7
+    Jefa --> UC8
+    Jefa --> UC9
