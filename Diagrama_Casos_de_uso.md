@@ -1,5 +1,6 @@
 ```mermaid
-flowchart LR
+flowchart TB
+    %% Definición del sistema
     subgraph Sistema[Power Apps]
         UC1[Registrar Contratos]
         UC2[Consultar Contratos]
@@ -12,24 +13,26 @@ flowchart LR
         UC9[Auditoría de Modificaciones]
     end
 
-    AdminContratos([Administrador de Contratos]) --> UC1
-    AdminContratos --> UC2
-    AdminContratos --> UC3
-    AdminContratos --> UC4
-    AdminContratos --> UC7
-    AdminContratos --> UC8
-    AdminContratos --> UC9
+    %% Actores a la izquierda
+    AdminContratos([Administrador de Contratos]) --- UC1
+    AdminContratos --- UC2
+    AdminContratos --- UC3
+    AdminContratos --- UC4
+    AdminContratos --- UC7
+    AdminContratos --- UC8
+    AdminContratos --- UC9
 
-    AdminPresupuesto([Administrador de Presupuesto]) --> UC5
-    AdminPresupuesto --> UC6
-    AdminPresupuesto --> UC9
+    AdminPresupuesto([Administrador de Presupuesto]) --- UC5
+    AdminPresupuesto --- UC6
+    AdminPresupuesto --- UC9
 
-    Lectura([Usuario Lectura]) --> UC2
-    Lectura --> UC4
-    Lectura --> UC5
+    %% Actores a la derecha
+    Lectura([Usuario Lectura]) --- UC2
+    Lectura --- UC4
+    Lectura --- UC5
 
-    Especial([Permiso Especial]) --> UC2
-    Especial --> UC4
-    Especial --> UC5
-    Especial --> UC7
-    Especial --> UC8
+    Especial([Permiso Especial]) --- UC2
+    Especial --- UC4
+    Especial --- UC5
+    Especial --- UC7
+    Especial --- UC8
