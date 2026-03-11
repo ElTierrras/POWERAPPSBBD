@@ -1,6 +1,6 @@
 ```mermaid
-flowchart TB
-    %% Definición del sistema
+flowchart LR
+    %% Sistema en el centro
     subgraph Sistema[Power Apps]
         UC1[Registrar Contratos]
         UC2[Consultar Contratos]
